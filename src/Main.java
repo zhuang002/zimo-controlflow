@@ -7,13 +7,17 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int loops = sc.nextInt();
 		for (int i=0;i<loops;i++) {
-			int n = sc.nextInt();
-			int sum = 0;
-			for (int j=1;j<=n;j++) {
-				sum+=j;
-			}
-			System.out.println(sum);
+			System.out.println(accumulate(sc.nextInt()));
 		}
+	}
+
+	private static int accumulate(int n) {
+		// TODO Auto-generated method stub
+		int sum=0;
+		for (int i=1;i<=n;i++) {
+			sum+=i;
+		}
+		return sum;
 	}
 
 }
