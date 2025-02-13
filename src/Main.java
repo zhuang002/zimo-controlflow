@@ -28,8 +28,37 @@ public class Main {
 		// S = sqrt(p*(p-a)*(p-b)*(p-c)), p=(a+b+c)/2;
 		
 		double p=(a+b+c)/2;
-		return Math.sqrt(p*(p-a)*(p-b)*(p-c));
+		return sqrt(p*(p-a)*(p-b)*(p-c));
 		
+	}
+
+	private static double sqrt(double d) {
+		// TODO Auto-generated method stub
+		double small = 0;
+		double large = d;
+		double test=(small+large)/2;
+		double last = 1;
+		
+		while (abs(test-last)>0.00001) { // abs() is to calculate an absolute value.
+			double sqr = test*test;
+			if (sqr == d) {
+				return test;
+			}
+			if (sqr>d) {
+				large = test;
+			} else {
+				small = test;
+			}
+			last = test;
+			test = (small+large)/2;
+		}
+		return test;
+	}
+
+	private static double abs(double d) {
+		// TODO Auto-generated method stub
+		if (d>=0) return d;
+		return -d;
 	}
 
 	private static int accumulate(int n) {
